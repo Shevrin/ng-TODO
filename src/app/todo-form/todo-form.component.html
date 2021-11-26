@@ -1,9 +1,11 @@
 <div>
   <input
     type="text"
+    class="input"
     placeholder="Введите заметку..."
-    (keyup.enter)="onBtn(input.value)"
+    [(ngModel)]="title"
+    (keydown.enter)="addTodo()"
     #input
   />
-  <button (click)="onBtn(input.value)">Добавить</button>
+  <button (click)="addTodo()">Добавить</button>
 </div>

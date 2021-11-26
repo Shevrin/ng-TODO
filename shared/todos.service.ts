@@ -14,12 +14,12 @@ export class TodoService {
     {
       id: 1,
       flag: !false,
-      title: 'learn React Component',
+      title: 'learn NG Component',
     },
     {
       id: 2,
       flag: false,
-      title: 'do homework JS course',
+      title: 'buy a hat',
     },
     {
       id: 3,
@@ -29,7 +29,7 @@ export class TodoService {
     {
       id: 4,
       flag: false,
-      title: 'to meet my girl',
+      title: 'select a phone',
     },
     {
       id: 5,
@@ -37,6 +37,8 @@ export class TodoService {
       title: 'do smth else',
     },
   ];
+
+  // доработать работу с localStorage
 
   // setTodos(storage: ToDo[]) {
   //   localStorage.setItem('todoList', JSON.stringify(storage));
@@ -47,8 +49,9 @@ export class TodoService {
   //   return (todoLocalStorage = null ? [] : todoLocalStorage.todoList);
   // }
 
-  addTodo(str: string) {
-    console.log(str);
+  pushTodo(todo: ToDo) {
+    this.storage.push(todo);
+    localStorage.setItem('todoList', JSON.stringify(this.storage));
   }
 
   onToggle(id: number): void {

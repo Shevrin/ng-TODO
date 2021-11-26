@@ -16,9 +16,13 @@ li {
 	align-items: center;
 }
 
-input {
+input, button{
 	margin-right: .5rem;
+	position:relative;
+    top:50%; 
+  
 }
+
 
 .check {
 	text-decoration: line-through;

@@ -1,28 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { TodoService } from 'shared/todos.service';
+import { TodoService, ToDo } from 'shared/todos.service';
 @Component({
   selector: 'app-todo-form',
   templateUrl: './todo-form.component.html',
   styleUrls: ['./todo-form.component.scss'],
 })
 export class TodoFormComponent implements OnInit {
-  title = 'введи заметку';
-  inputValue = '';
+  title: string = '';
 
-  onInput(event: any) {
-    console.log(event);
-  }
-  onBtn(str: string) {
-    this.todoService.addTodo(str);
-  }
-
-  // addTodo() {
-  //   const todo: Todo = {
-  //     title: this.title,
-  //     flag: false,
-  //   };
-  // }
   constructor(public todoService: TodoService) {}
+
+  addTodo() {
+    const todo: ToDo = {
+      title: this.title,
+      flag: false,
+      id: Date.now(),
+    };
+
+    if (todo.title) {
+      this.todoService.pushTodo(todo);
+      console.log(todo);
+    }
+    this.title = '';
+  }
 
   ngOnInit(): void {}
 }
