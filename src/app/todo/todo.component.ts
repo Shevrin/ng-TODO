@@ -7,11 +7,10 @@ import { TodoService } from 'shared/todos.service';
   styleUrls: ['./todo.component.scss'],
 })
 export class TodoComponent implements OnInit {
-  // flag = false;
   constructor(public todoService: TodoService) {}
 
   check(id: number) {
-    console.dir(id);
+    // console.dir(id);
     this.todoService.onToggle(id);
   }
 

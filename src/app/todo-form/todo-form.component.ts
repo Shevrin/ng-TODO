@@ -11,11 +11,17 @@ export class TodoFormComponent implements OnInit {
 
   onInput(event: any) {
     console.log(event);
-    this.inputValue = event.target.value;
   }
   onBtn(str: string) {
-    this.inputValue = str;
+    this.todoService.addTodo(str);
   }
+
+  // addTodo() {
+  //   const todo: Todo = {
+  //     title: this.title,
+  //     flag: false,
+  //   };
+  // }
   constructor(public todoService: TodoService) {}
 
   ngOnInit(): void {}

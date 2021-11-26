@@ -38,14 +38,18 @@ export class TodoService {
     },
   ];
 
-  setTodos(storage: ToDo[]) {
-    localStorage.setItem('todoList', JSON.stringify(storage));
-  }
+  // setTodos(storage: ToDo[]) {
+  //   localStorage.setItem('todoList', JSON.stringify(storage));
+  // }
 
   // getTodos(): ToDo[] {
   //   let todoLocalStorage = JSON.parse(localStorage.getItem('todoList'));
   //   return (todoLocalStorage = null ? [] : todoLocalStorage.todoList);
   // }
+
+  addTodo(str: string) {
+    console.log(str);
+  }
 
   onToggle(id: number): void {
     const checkIndx = this.storage.findIndex((t) => t.id === id);
