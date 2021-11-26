@@ -1,0 +1,27 @@
+.container{
+	width: 600px;
+	max-width: 1165px;
+	padding: 0 15px;
+	margin: 0 auto;
+	border: 2.5px solid #ccc;
+}
+button, input{
+	background-color: burlywood;
+	border-radius: 5px;
+}
+
+.color1{
+	font-style: italic;
+	font-size: 1.1rem;
+	color: rgb(150, 84, 124);
+}
+.color3{
+	font-style: italic;
+	font-size: 2rem;
+	color: rgb(48, 17, 121);
+}
+.color3{
+	font-style: bold;
+	font-size: 1.1rem;
+	color: rgb(104, 69, 48);
+}

@@ -1,0 +1,9 @@
+<div>
+  <input
+    type="text"
+    [(ngModel)]="title"
+    (keyup.enter)="onBtn(input.value)"
+    #input
+  />
+  <button (click)="onBtn(input.value)">Добавить</button>
+</div>
