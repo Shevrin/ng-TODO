@@ -15,7 +15,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "ukit",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -33,6 +33,12 @@
             "styles": [
               "src/styles.scss"
             ],
+						"stylePreprocessorOptions": {
+              "includePaths": [
+                "src/style",
+                "src/mixins/"                
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -62,7 +68,7 @@
               "optimization": false,
               "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true,
+              "sourceMap": false,
               "namedChunks": true
             }
           },

@@ -1,0 +1,52 @@
+.header {
+position: absolute;
+z-index: 2000;
+width: 843px;
+height: 311px;
+background: #B4B2FF;
+border-radius: 12px 12px 0px 0px;
+align-items: center;
+}
+
+input{
+display: flex;
+width: 724px;
+height: 48px;
+background: #FFFFFF;
+border-radius: 4px;
+margin: 175px 36px 0px 56px;
+font-size: 24px;
+line-height: 28px;
+padding: 0px 12px;
+&:focus{
+outline: none;
+}
+}
+
+span{
+	font-size: 76px;
+}
+
+.head-text{
+position: absolute;
+margin: 90px 66px;
+	color: #FFFFFF;
+	font-size: 36px;
+
+}
+
+.addBtn{
+position: absolute;
+right: 124px;
+top: 249px;
+}
+
+.deleteBtn{
+position: absolute;
+left: 502px;
+top: 273px;
+}
+
+
+
+

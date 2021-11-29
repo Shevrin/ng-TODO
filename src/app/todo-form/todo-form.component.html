@@ -1,11 +1,26 @@
-<div>
+<div class="header">
+  <div class="head-text"><span>1</span>/5 TASK</div>
   <input
     type="text"
     class="input"
-    placeholder="Введите заметку..."
+    placeholder="enter your task..."
     [(ngModel)]="title"
     (keydown.enter)="addTodo()"
     #input
   />
-  <button (click)="addTodo()">Добавить</button>
+  <div class="form-btn">
+    <button class="deleteBtn" (click)="addTodo()">
+      крест
+      <svg
+        width="76"
+        height="76"
+        viewBox="0 0 76 76"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="38" cy="38" r="38" fill="#8F8EC7" />
+      </svg>
+    </button>
+    <button class="addBtn" (click)="addTodo()">Добавить</button>
+  </div>
 </div>

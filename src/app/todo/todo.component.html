@@ -1,4 +1,4 @@
-<div>
+<div class="list">
   <ul *ngIf="todoService.storage.length; else noTodosList">
     <li *ngFor="let todo of todoService.storage">
       <label>
@@ -8,9 +8,10 @@
           [checked]="todo.flag"
           (change)="check(todo.id)"
         />
+        <span class="ch-box"></span>
+        <span class="ch-text" [class.check]="todo.flag">{{ todo.title }}</span>
       </label>
-      <span [class.check]="todo.flag">{{ todo.title }}</span>
-      <button (click)="removeTodo(todo.id)">X</button>
+      <button class="del-btn" (click)="removeTodo(todo.id)"></button>
     </li>
   </ul>
 
