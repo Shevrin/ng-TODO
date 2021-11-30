@@ -38,6 +38,8 @@ export class TodoService {
     },
   ];
 
+  public tasks: number = this.storage.length;
+
   // доработать работу с localStorage
 
   // setTodos(storage: ToDo[]) {
@@ -52,15 +54,19 @@ export class TodoService {
   pushTodo(todo: ToDo) {
     this.storage.push(todo);
     localStorage.setItem('todoList', JSON.stringify(this.storage));
+    console.log(this.storage.length);
+    this.tasks = this.storage.length;
   }
 
   onToggle(id: number): void {
     const checkIndx = this.storage.findIndex((t) => t.id === id);
     this.storage[checkIndx].flag = !this.storage[checkIndx].flag;
+    // console.log(this.storage.length);
   }
 
   removeTodo(id: number) {
     this.storage = this.storage.filter((t) => t.id !== id);
     console.log(this.storage.length);
+    this.tasks = this.storage.length;
   }
 }

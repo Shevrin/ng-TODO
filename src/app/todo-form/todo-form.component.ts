@@ -7,8 +7,12 @@ import { TodoService, ToDo } from 'shared/todos.service';
 })
 export class TodoFormComponent implements OnInit {
   title: string = '';
+  tasks: number;
+  show: boolean = false;
 
-  constructor(public todoService: TodoService) {}
+  constructor(public todoService: TodoService) {
+    this.tasks = this.todoService.tasks;
+  }
 
   addTodo() {
     const todo: ToDo = {
@@ -16,12 +20,16 @@ export class TodoFormComponent implements OnInit {
       flag: false,
       id: Date.now(),
     };
-
     if (todo.title) {
       this.todoService.pushTodo(todo);
-      console.log(todo);
     }
     this.title = '';
+
+    console.log(this.tasks);
+  }
+
+  addInput() {
+    this.show = !this.show;
   }
 
   ngOnInit(): void {}

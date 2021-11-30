@@ -20,8 +20,8 @@ ul {
 }
 
 li {
-	display: block;
-	border: #2E2E2E solid 1px;
+	display: flex;
+	// border: #2E2E2E solid 1px;
 	max-width: 400px;
 	text-align: left;
 	align-items: center;
@@ -39,7 +39,7 @@ display: none;
 
 .ch-text{
 	display: inline-block;
-	padding: 0px 46px 5px 46px;
+	padding: 4px 46px 0px 46px;
 }
 
 .ch-box{
@@ -47,6 +47,7 @@ display: none;
 	position: absolute;
 	width: 34px;
 	height: 34px;
+	cursor: pointer;
 	background-image: url(./img/checkbox_before.svg);
 }
 
@@ -56,9 +57,15 @@ display: none;
 }
 
 .del-btn{
+	cursor: pointer;
 	position: relative;
+	border-color: transparent;
+	background-color: transparent;
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
 	left: 15px;
 	width: 34px;
 	height: 34px;
-	// background-image: url(./img/delete.svg);
+	background-image: url(./img/delete.svg);
 }
