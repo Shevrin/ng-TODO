@@ -1,3 +1,25 @@
+<div class="header">
+  <div class="head-text">
+    <span class="main-subtext">1</span>
+    <span class="head-subtext"> / {{ tasks }} </span>
+    task
+  </div>
+  <input
+    type="text"
+    class="input"
+    placeholder="enter your task..."
+    [(ngModel)]="title"
+    (keydown.enter)="addTodo()"
+    #input
+    *ngIf="show"
+  />
+  <div class="form-btn" *ngIf="show">
+    <button class="cancleBtn" (click)="title = ''"></button>
+    <button class="confirmBtn" (click)="addTodo()"></button>
+  </div>
+  <button class="addBtn" (click)="addInput()" *ngIf="!show"></button>
+</div>
+
 <div class="list">
   <ul *ngIf="todoService.storage.length; else noTodosList">
     <li *ngFor="let todo of todoService.storage">
@@ -6,7 +28,7 @@
           type="checkbox"
           class="custom-checkbox"
           [checked]="todo.flag"
-          (change)="check(todo.id)"
+          (change)="checkTodo(todo.id)"
         />
         <span class="ch-box"></span>
         <span class="ch-text" [class.check]="todo.flag">{{ todo.title }}</span>
@@ -14,8 +36,8 @@
       <button class="del-btn" (click)="removeTodo(todo.id)"></button>
     </li>
   </ul>
-
-  <ng-template #noTodosList>
-    <p style="text-align: center">Нет заданий</p>
-  </ng-template>
 </div>
+
+<ng-template #noTodosList>
+  <p style="text-align: center">Нет заданий</p>
+</ng-template>

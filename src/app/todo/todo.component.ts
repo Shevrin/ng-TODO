@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TodoService } from 'shared/todos.service';
+import { TodoService, ToDo } from 'shared/todos.service';
 
 @Component({
   selector: 'app-todo',
@@ -7,9 +7,32 @@ import { TodoService } from 'shared/todos.service';
   styleUrls: ['./todo.component.scss'],
 })
 export class TodoComponent implements OnInit {
-  constructor(public todoService: TodoService) {}
+  title: string = '';
+  tasks: number = this.todoService.tasks;
+  show: boolean = false;
 
-  check(id: number) {
+  constructor(public todoService: TodoService) {
+    this.tasks = this.todoService.tasks;
+  }
+
+  addInput() {
+    this.show = !this.show;
+  }
+
+  addTodo() {
+    const todo: ToDo = {
+      title: this.title,
+      flag: false,
+      id: Date.now(),
+    };
+    if (todo.title) {
+      this.todoService.pushTodo(todo);
+    }
+    this.title = '';
+    // console.log(this.tasks);
+  }
+
+  checkTodo(id: number) {
     // console.dir(id);
     this.todoService.onToggle(id);
   }

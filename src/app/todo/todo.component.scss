@@ -1,71 +1,139 @@
+@import 'variables';
+@import 'mixins';
 
-.list{
-z-index: 0;
-position: absolute;
-width: 843px;
-// left: 108px;
-// top: 210px;
-background: #FFFFFF;
-// mix-blend-mode: normal;
-box-shadow: 12px 12px 36px 4px rgba(143, 142, 199, 0.3);
-border-radius: 12px;
+.header {
+  position: absolute;
+  z-index: 2000;
+  width: 843px;
+  height: 311px;
+  background: $header-color;
+  border-radius: 12px 12px 0px 0px;
+  align-items: center;
+}
 
+input {
+  display: flex;
+  width: 724px;
+  height: 48px;
+  background: #FFFFFF;
+  border-radius: 4px;
+  margin: 175px 36px 0px 56px;
+  font-size: 24px;
+  line-height: 28px;
+  padding: 0px 12px;
+
+  &:focus {
+    outline: none;
+  }
+}
+.head-subtext {
+  display: inline;
+  vertical-align: middle;
+  padding-left: 10px;
+  padding-top: 20rem;
+}
+
+.main-subtext {
+  display: inline;
+  vertical-align: middle;
+  font-size: 72px;
+  padding-left: 20px;
+}
+
+.head-text {
+  position: absolute;
+  margin: 90px 66px;
+  color: $header-text-color;
+  font-size: 36px;
+
+}
+
+.confirmBtn  {
+	@include customise-elem;
+	@include size-btn-main;
+  position: absolute;
+  right: 124px;
+  top: 249px;
+  padding: 0;
+  background-image: url(./img/Confirm_btn.svg);
+}
+
+.addBtn {
+	@include customise-elem;
+	@include size-btn-main;
+  position: absolute;
+  right: 124px;
+  top: 249px;
+  padding: 0;
+  background-image: url(./img/Add_btn.svg);
+}
+
+.cancleBtn {
+	@include customise-elem;
+	@include size-btn-minor;
+  position: absolute;
+  left: 502px;
+  top: 273px;
+ 
+  background-image: url(./img/Cancel_btn.svg);
+}
+
+.list {
+  z-index: 0;
+  position: absolute;
+  width: 843px;
+  background: #FFFFFF;
+  box-shadow: 12px 12px 36px 4px rgba(143, 142, 199, 0.3);
+  border-radius: 12px;
 }
 
 ul {
-	list-style: none;
-	padding: 56px;
-	margin-top: 355px;
-
+  list-style: none;
+  padding: 56px;
+  margin-top: 355px;
 }
 
 li {
-	display: flex;
-	// border: #2E2E2E solid 1px;
-	max-width: 400px;
-	text-align: left;
-	align-items: center;
-  color: #2E2E2E;
+  display: flex;
+  max-width: 400px;
+  text-align: left;
+  align-items: center;
+  color: $text-color-main;
   margin-top: 30px;
   justify-content: space-between;
 }
 
-.custom-checkbox{
-display: none;
-&:checked + .ch-box {
-	background-image: url(./img/checkbox_after.svg);
-}
+.custom-checkbox {
+  display: none;
+
+  &:checked+.ch-box {
+    background-image: url(./img/checkbox_after.svg);
+  }
 }
 
-.ch-text{
-	display: inline-block;
-	padding: 4px 46px 0px 46px;
+.ch-text {
+  display: inline-block;
+  padding: 4px 46px 0px 46px;
 }
 
-.ch-box{
-	padding: -20px;
-	position: absolute;
-	width: 34px;
-	height: 34px;
-	cursor: pointer;
-	background-image: url(./img/checkbox_before.svg);
+.ch-box {
+	@include elem-main;
+  padding: -20px;
+  position: absolute;
+  cursor: pointer;
+  background-image: url(./img/checkbox_before.svg);
 }
 
 .check {
-	color: #D1D1D1;
-	text-decoration: line-through;
+  color: $text-color-hold;
+  text-decoration: line-through;
 }
 
-.del-btn{
-	cursor: pointer;
-	position: relative;
-	border-color: transparent;
-	background-color: transparent;
-	background-position: center;
-	background-size: contain;
-	background-repeat: no-repeat;
-	left: 15px;
-	width: 34px;
-	height: 34px;
-	background-image: url(./img/delete.svg);
+.del-btn {
+	@include elem-main;
+	@include customise-elem;
+  position: relative;
+  cursor: pointer;
+  left: 15px;
+  background-image: url(./img/delete.svg);
 }
