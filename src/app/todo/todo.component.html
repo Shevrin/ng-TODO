@@ -1,6 +1,6 @@
 <div class="header">
   <div class="head-text">
-    <span class="main-subtext">1</span>
+    <span class="main-subtext">{{ checkedTasks }}</span>
     <span class="head-subtext"> / {{ tasks }} </span>
     task
   </div>
@@ -8,9 +8,9 @@
     type="text"
     class="input"
     placeholder="enter your task..."
-    [(ngModel)]="title"
     (keydown.enter)="addTodo()"
     #input
+    [(ngModel)]="title"
     *ngIf="show"
   />
   <div class="form-btn" *ngIf="show">
@@ -21,7 +21,7 @@
 </div>
 
 <div class="list">
-  <ul *ngIf="todoService.storage.length; else noTodosList">
+  <ul *ngIf="tasks; else noTodosList">
     <li *ngFor="let todo of todoService.storage">
       <label>
         <input
@@ -37,7 +37,6 @@
     </li>
   </ul>
 </div>
-
 <ng-template #noTodosList>
   <p style="text-align: center">Нет заданий</p>
 </ng-template>

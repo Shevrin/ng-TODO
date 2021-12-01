@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 import { TodoService, ToDo } from 'shared/todos.service';
 
 @Component({
@@ -6,13 +6,15 @@ import { TodoService, ToDo } from 'shared/todos.service';
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.scss'],
 })
-export class TodoComponent implements OnInit {
+export class TodoComponent implements DoCheck {
   title: string = '';
-  tasks: number = this.todoService.tasks;
+  tasks: number;
+  // = this.todoService.tasks;
   show: boolean = false;
-
+  checkedTasks: number;
   constructor(public todoService: TodoService) {
     this.tasks = this.todoService.tasks;
+    this.checkedTasks = this.todoService.checkedTasks;
   }
 
   addInput() {
@@ -41,5 +43,8 @@ export class TodoComponent implements OnInit {
     this.todoService.removeTodo(id);
   }
 
-  ngOnInit() {}
+  ngDoCheck() {
+    this.tasks = this.todoService.tasks;
+    console.log('doOnCheck');
+  }
 }
