@@ -41,7 +41,8 @@ export class TodoService {
   public tasks: number = this.storage.length;
   private checckedArr = this.storage.filter((i) => i.flag);
   public checkedTasks: number = this.checckedArr.length;
-  // доработать работу с localStorage
+
+  // TODO доработать работу с localStorage
 
   // setTodos(storage: ToDo[]) {
   //   localStorage.setItem('todoList', JSON.stringify(storage));
@@ -68,7 +69,7 @@ export class TodoService {
 
   removeTodo(id: number) {
     this.storage = this.storage.filter((t) => t.id !== id);
-
+    // TODO  сделать изменение счетчика при удалении элемента
     // console.log(this.storage.length);
     this.tasks = this.storage.length;
   }
