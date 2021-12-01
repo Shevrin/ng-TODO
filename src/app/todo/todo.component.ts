@@ -45,6 +45,7 @@ export class TodoComponent implements DoCheck {
 
   ngDoCheck() {
     this.tasks = this.todoService.tasks;
+    this.checkedTasks = this.todoService.checkedTasks;
     console.log('doOnCheck');
   }
 }
