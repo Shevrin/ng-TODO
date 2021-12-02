@@ -1,6 +1,7 @@
-@import "../../styles/variables";
-@import "../../styles/mixins";
-@import "../../styles/global.scss";
+@import "../../../../styles/variables";
+
+@import "../../../../styles/mixins";
+// @import "../../styles/global.scss";
 .header {
   position: absolute;
   z-index: 2000;
@@ -22,9 +23,9 @@ input {
   line-height: 28px;
   padding: 0px 12px;
 
-  &:focus {
-    outline: none;
-  }
+  // &:focus {
+  //   outline: none;
+  // }
 }
 .head-subtext {
   display: inline;
@@ -55,7 +56,7 @@ input {
   right: 124px;
   top: 249px;
   padding: 0;
-  background-image: url(./assets/img/icons/ic-confirm-btn.svg);
+  background-image: url(../../../../assets/img/icons/ic-confirm-btn.svg);
 }
 
 .addBtn {
@@ -65,7 +66,7 @@ input {
   right: 124px;
   top: 249px;
   padding: 0;
-  background-image: url(./assets/img/icons/ic-add-element-btn.svg);
+  background-image: url(../../../../assets/img/icons/ic-add-element-btn.svg);
 }
 
 .cancleBtn {
@@ -74,8 +75,8 @@ input {
   position: absolute;
   left: 502px;
   top: 273px;
- 
-  background-image: url(./assets/img/icons/ic-cancel-btn.svg);
+
+  background-image: url(../../../../assets/img/icons/ic-cancel-btn.svg);
 }
 
 .list {
@@ -107,7 +108,7 @@ li {
   display: none;
 
   &:checked+.ch-box {
-    background-image: url(./assets/img/icons/ic-checkbox_after.svg);
+    background-image: url(../../../../assets/img/icons/ic-checkbox_after.svg);
   }
 }
 
@@ -121,7 +122,7 @@ li {
   padding: -20px;
   position: absolute;
   cursor: pointer;
-  background-image: url(./assets/img/icons/ic-checkbox_before.svg);
+  background-image: url(../../../../assets/img/icons/ic-checkbox_before.svg);
 }
 
 .check {
@@ -135,5 +136,5 @@ li {
   position: relative;
   cursor: pointer;
   left: 15px;
-  background-image: url(./assets/img/icons/ic-delete-btn.svg);
+  background-image: url(../../../../assets/img/icons/ic-delete-btn.svg);
 }

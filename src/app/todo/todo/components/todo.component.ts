@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, DoCheck } from '@angular/core';
-import { TodoService, ToDo } from 'shared/todos.service';
+import { TodoService, ToDo } from 'src/app/todo/todo/servises/todos.service';
 
 @Component({
-  selector: 'app-todo',
+  selector: 'ukit-todo',
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
