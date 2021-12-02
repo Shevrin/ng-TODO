@@ -1,6 +1,6 @@
-@import 'variables';
-@import 'mixins';
-
+@import "../../styles/variables";
+@import "../../styles/mixins";
+@import "../../styles/global.scss";
 .header {
   position: absolute;
   z-index: 2000;
