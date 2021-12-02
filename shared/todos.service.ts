@@ -39,8 +39,8 @@ export class TodoService {
   ];
 
   public tasks: number = this.storage.length;
-  private checckedArr = this.storage.filter((i) => i.flag);
-  public checkedTasks: number = this.checckedArr.length;
+  private checkedArr = this.storage.filter((i) => i.flag);
+  public checkedTasks: number = this.checkedArr.length;
 
   // TODO доработать работу с localStorage
 

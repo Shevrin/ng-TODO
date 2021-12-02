@@ -1,10 +1,11 @@
-import { Component, DoCheck } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DoCheck } from '@angular/core';
 import { TodoService, ToDo } from 'shared/todos.service';
 
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoComponent implements DoCheck {
   title: string = '';

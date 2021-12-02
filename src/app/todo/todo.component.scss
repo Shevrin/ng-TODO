@@ -55,7 +55,7 @@ input {
   right: 124px;
   top: 249px;
   padding: 0;
-  background-image: url(./img/Confirm_btn.svg);
+  background-image: url(./assets/img/icons/ic-confirm-btn.svg);
 }
 
 .addBtn {
@@ -65,7 +65,7 @@ input {
   right: 124px;
   top: 249px;
   padding: 0;
-  background-image: url(./img/Add_btn.svg);
+  background-image: url(./assets/img/icons/ic-add-element-btn.svg);
 }
 
 .cancleBtn {
@@ -75,7 +75,7 @@ input {
   left: 502px;
   top: 273px;
  
-  background-image: url(./img/Cancel_btn.svg);
+  background-image: url(./assets/img/icons/ic-cancel-btn.svg);
 }
 
 .list {
@@ -107,7 +107,7 @@ li {
   display: none;
 
   &:checked+.ch-box {
-    background-image: url(./img/checkbox_after.svg);
+    background-image: url(./assets/img/icons/ic-checkbox_after.svg);
   }
 }
 
@@ -121,7 +121,7 @@ li {
   padding: -20px;
   position: absolute;
   cursor: pointer;
-  background-image: url(./img/checkbox_before.svg);
+  background-image: url(./assets/img/icons/ic-checkbox_before.svg);
 }
 
 .check {
@@ -135,5 +135,5 @@ li {
   position: relative;
   cursor: pointer;
   left: 15px;
-  background-image: url(./img/delete.svg);
+  background-image: url(./assets/img/icons/ic-delete-btn.svg);
 }
