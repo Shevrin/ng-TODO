@@ -1,0 +1,23 @@
+@mixin elem-main {
+	width: 34px;
+  height: 34px;
+	}
+
+@mixin size-btn-main {
+	width: 124px;
+  height: 124px;
+}
+
+@mixin size-btn-minor {
+  width: 76px;
+  height: 76px;
+}
+
+@mixin customise-elem {
+	cursor: pointer;
+	border-color: transparent;
+  background-color: transparent;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
