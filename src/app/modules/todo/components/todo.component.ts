@@ -27,10 +27,7 @@ export class TodoComponent implements DoCheck, AfterViewInit {
   addInput() {
     this.show = !this.show;
   }
-  view(e: Event, h: string): void {
-    console.log(e);
-    h = e;
-  }
+
   addTodo() {
     const todo: ToDo = {
       title: this.title,

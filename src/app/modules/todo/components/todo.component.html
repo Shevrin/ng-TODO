@@ -32,12 +32,10 @@
         />
         <span class="ch-box"></span>
         <span
-          contenteditable="true"
           [textContent]="todo.title"
           class="ch-text"
           [class.check]="todo.flag"
-          (input)="view($event, todo.title)"
-          >{{ todo.title }}</span
+                   >{{ todo.title }}</span
         >
       </label>
       <button class="del-btn" (click)="removeTodo(todo.id)"></button>
