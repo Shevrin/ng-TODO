@@ -56,20 +56,21 @@ export class TodoService {
 
   // TODO доработать работу с localStorage
 
-  // setTodos(todolist: ToDo[]) {
-  //   localStorage.setItem('todoList', JSON.stringify(todolist));
-  // }
+  setTodos(todolist: ToDo[]) {
+    localStorage.setItem('todoList', JSON.stringify(todolist));
+  }
 
-  // public getTodos(): ToDo[] {
-  //   let localStorageItem = JSON.parse(localStorage.getItem('todolist'));
-  //   return localStorageItem == null ? [] : localStorageItem.todos;
-  // }
+  public getTodos(): ToDo[] {
+    let localStorageItem = localStorage.getItem('todolist');
+    return localStorageItem == null ? [] : JSON.parse(localStorageItem);
+  }
 
   public pushTodo(todo: ToDo) {
     this.todolist.push(todo);
-    // localStorage.setItem('todoList', JSON.stringify(this.todolist));
+    localStorage.setItem('todoList', JSON.stringify(this.todolist));
     // console.log(this.todolist.length);
     this.tasks = this.todolist.length;
+    console.log(this.getTodos());
   }
 
   public onToggle(id: number): void {
