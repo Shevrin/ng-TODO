@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, DoCheck } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TodoService, ToDo } from '../../services/todos.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { TodoService, ToDo } from '../../services/todos.service';
   styleUrls: ['./todo.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TodoComponent implements DoCheck {
+export class TodoComponent {
   tasks: number;
   show: boolean = false;
   description!: string;
@@ -42,9 +42,9 @@ export class TodoComponent implements DoCheck {
     this.todoService.removeTodo(id);
   }
 
-  ngDoCheck() {
-    this.tasks = this.todoService.tasks;
-    this.checkedTasks = this.todoService.checkedTasks;
-    console.log('doOnCheck');
-  }
+  // ngDoCheck() {
+  //   this.tasks = this.todoService.tasks;
+  //   this.checkedTasks = this.todoService.checkedTasks;
+  //   console.log('doOnCheck');
+  // }
 }
