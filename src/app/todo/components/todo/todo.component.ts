@@ -1,11 +1,5 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  DoCheck,
-} from '@angular/core';
-import { TodoService, ToDo } from 'src/app/modules/todo/servises/todos.service';
+import { ChangeDetectionStrategy, Component, DoCheck } from '@angular/core';
+import { TodoService, ToDo } from '../../services/todos.service';
 
 @Component({
   selector: 'ukit-todo',
@@ -13,13 +7,13 @@ import { TodoService, ToDo } from 'src/app/modules/todo/servises/todos.service';
   styleUrls: ['./todo.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TodoComponent implements DoCheck, AfterViewInit {
-  title: string = '';
+export class TodoComponent implements DoCheck {
   tasks: number;
-  // = this.todoService.tasks;
   show: boolean = false;
+  description!: string;
   checkedTasks: number;
-  constructor(public todoService: TodoService, private cdr: ChangeDetectorRef) {
+
+  constructor(public todoService: TodoService) {
     this.tasks = this.todoService.tasks;
     this.checkedTasks = this.todoService.checkedTasks;
   }
@@ -30,19 +24,17 @@ export class TodoComponent implements DoCheck, AfterViewInit {
 
   addTodo() {
     const todo: ToDo = {
-      title: this.title,
+      description: this.description,
       flag: false,
       id: Date.now(),
     };
-    if (todo.title) {
+    if (todo.description.trim()) {
       this.todoService.pushTodo(todo);
     }
-    this.title = '';
-    // console.log(this.tasks);
+    this.description = '';
   }
 
   checkTodo(id: number) {
-    // console.dir(id);
     this.todoService.onToggle(id);
   }
 
@@ -54,9 +46,5 @@ export class TodoComponent implements DoCheck, AfterViewInit {
     this.tasks = this.todoService.tasks;
     this.checkedTasks = this.todoService.checkedTasks;
     console.log('doOnCheck');
-  }
-
-  ngAfterViewInit(): void {
-    this.cdr.markForCheck;
   }
 }

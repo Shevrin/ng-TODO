@@ -8,40 +8,42 @@
     type="text"
     class="input"
     placeholder="enter your task..."
-    (keydown.enter)="addTodo()"
     #input
-    [(ngModel)]="title"
     *ngIf="show"
+    [(ngModel)]="description"
+    (keydown.enter)="addTodo()"
   />
   <div class="form-btn" *ngIf="show">
-    <button class="cancleBtn" (click)="title = ''"></button>
-    <button class="confirmBtn" (click)="addTodo()"></button>
+    <div class="confirmButton" (click)="addTodo()"></div>
+    <div class="cancleButton" (click)="description = ''"></div>
   </div>
-  <button class="addBtn" (click)="addInput()" *ngIf="!show"></button>
+
+  <div class="addButton" *ngIf="!show" (click)="addInput()"></div>
 </div>
 
 <div class="list">
   <ul *ngIf="tasks; else noTodosList">
-    <li *ngFor="let todo of todoService.storage">
+    <li *ngFor="let todo of todoService.todolist">
       <label>
         <input
           type="checkbox"
-          class="custom-checkbox"
+          class="check-input"
           [checked]="todo.flag"
           (change)="checkTodo(todo.id)"
         />
-        <span class="ch-box"></span>
+        <div class="ch-box"></div>
         <span
-          [textContent]="todo.title"
           class="ch-text"
+          [textContent]="todo.description"
           [class.check]="todo.flag"
-                   >{{ todo.title }}</span
+          >{{ todo.description }}</span
         >
       </label>
       <button class="del-btn" (click)="removeTodo(todo.id)"></button>
     </li>
   </ul>
+  <ng-content select="selector"></ng-content>
 </div>
 <ng-template #noTodosList>
-  <p style="text-align: center">Нет заданий</p>
+  <p style="text-align: center">No Tasks</p>
 </ng-template>
