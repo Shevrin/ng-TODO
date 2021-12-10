@@ -1,6 +1,6 @@
 <div class="header">
   <div class="head-text">
-    <span class="main-subtext">{{ todoService.checkedTasks }}</span>
+    <span class="main-subtext">{{ todoService.checkedArr.length }}</span>
     <span class="head-subtext"> / {{ todoService.todolist.length }} </span>
     task
   </div>
@@ -31,6 +31,7 @@
           [checked]="todo.flag"
           (change)="checkTodo(todo.id)"
         />
+
         <div class="ch-box"></div>
         <span
           class="ch-text"
@@ -39,7 +40,7 @@
           >{{ todo.description }}</span
         >
       </label>
-      <button class="del-btn" (click)="removeTodo(todo.id)"></button>
+      <span class="del-btn" (click)="removeTodo(todo.id)"></span>
     </li>
   </ul>
   <ng-content select="selector"></ng-content>

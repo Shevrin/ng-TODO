@@ -11,11 +11,9 @@ export class TodoComponent {
   tasks: number;
   show: boolean = false;
   description!: string;
-  checkedTasks: number;
 
   constructor(public todoService: TodoService) {
     this.tasks = this.todoService.tasks;
-    this.checkedTasks = this.todoService.checkedTasks;
   }
 
   addInput() {
@@ -27,6 +25,7 @@ export class TodoComponent {
       description: this.description,
       flag: false,
       id: Date.now(),
+      // id: this.todoService.nextId + 1,
     };
     if (todo.description.trim()) {
       this.todoService.pushTodo(todo);
@@ -41,10 +40,4 @@ export class TodoComponent {
   removeTodo(id: number) {
     this.todoService.removeTodo(id);
   }
-
-  // ngDoCheck() {
-  //   this.tasks = this.todoService.tasks;
-  //   this.checkedTasks = this.todoService.checkedTasks;
-  //   console.log('doOnCheck');
-  // }
 }

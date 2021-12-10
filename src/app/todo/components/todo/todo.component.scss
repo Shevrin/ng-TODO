@@ -136,17 +136,13 @@ li {
 .check-input {
 	position: absolute;
   display: none;
-// appearance: none;
   &:checked+.ch-box {
 	box-shadow: 0 0 0 4px #B4B2FF;
-  background-color: #B4B2FF;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
 		background-size: 60% ;
-		// @include element-color(#B4B2FF);
-    background-image: url(../../../../assets/img/icons/ic-confirm-btn.svg);
-    // background: #B4B2FF url(../../../../assets/img/icons/ic-confirm-btn.svg);
+    background-image: url(../../../../assets/img/icons/ic-checkbox_after.svg);
   }
 }
 

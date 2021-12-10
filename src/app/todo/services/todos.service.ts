@@ -39,53 +39,45 @@ export class TodoService {
   ];
 
   constructor() {
-    // let todosStorage = this.getTodos();
-    // // if no todos, nextId is 0,
-    // // otherwise set to 1 more than last todo id
-    // if (todos.length == 0) {
-    //   this.nextId = 0;
-    // } else {
-    //   let maxId = todos[todos.length-1].id;
-    //   this.nextId = maxId + 1;
-    // }
-  }
+    this.todolist = this.getTodos();
 
+    this.checkedArr = this.todolist.filter((i) => i.flag);
+    this.checkedTasks = this.checkedArr.length;
+  }
+  public checkedArr: any;
+  // = this.todolist.filter((i) => i.flag);
+  public checkedTasks: number;
+  // = this.checkedArr.length;
   public tasks: number = this.todolist.length;
-  private checkedArr = this.todolist.filter((i) => i.flag);
-  public checkedTasks: number = this.checkedArr.length;
 
-  // TODO доработать работу с localStorage
-
-  setTodos(todolist: ToDo[]) {
+  private setTodos(todolist: ToDo[]) {
     localStorage.setItem('todoList', JSON.stringify(todolist));
+    console.log(this.getTodos());
   }
 
-  public getTodos(): ToDo[] {
-    let localStorageItem = localStorage.getItem('todolist');
+  private getTodos(): ToDo[] {
+    let localStorageItem = localStorage.getItem('todoList');
+    console.log(localStorageItem);
+
     return localStorageItem == null ? [] : JSON.parse(localStorageItem);
   }
 
   public pushTodo(todo: ToDo) {
     this.todolist.push(todo);
-    localStorage.setItem('todoList', JSON.stringify(this.todolist));
-    // console.log(this.todolist.length);
-    this.tasks = this.todolist.length;
-    console.log(this.getTodos());
+    this.setTodos(this.todolist);
   }
 
   public onToggle(id: number): void {
-    const checkIndx = this.todolist.findIndex((t) => t.id === id);
+    const checkIndx = this.todolist.findIndex((item) => item.id === id);
     this.todolist[checkIndx].flag = !this.todolist[checkIndx].flag;
-    console.log(this.checkedTasks);
     this.todolist[checkIndx].flag ? this.checkedTasks++ : this.checkedTasks--;
+    this.checkedArr = this.todolist.filter((item) => item.flag);
+    this.setTodos(this.todolist);
   }
 
   public removeTodo(id: number) {
-    this.todolist = this.todolist.filter((t) => t.id !== id);
-    // if (condition) {
-    // }
-    // TODO  сделать изменение счетчика при удалении элемента
-    // console.log(this.todolist.length);
-    this.tasks = this.todolist.length;
+    this.todolist = this.todolist.filter((item) => item.id !== id);
+    this.checkedArr = this.todolist.filter((item) => item.flag);
+    this.setTodos(this.todolist);
   }
 }
