@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { TodoService, ToDo } from '../../services/todos.service';
+import { TodoService } from '../../services/todos.service';
+import { TodoItem } from '../../models/todo-item'
 
 @Component({
   selector: 'ukit-todo',
@@ -8,20 +9,18 @@ import { TodoService, ToDo } from '../../services/todos.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoComponent {
-  tasks: number;
   show: boolean = false;
   description!: string;
 
   constructor(public todoService: TodoService) {
-    this.tasks = this.todoService.tasks;
   }
 
-  addInput() {
+  addInput(): void {
     this.show = !this.show;
   }
 
-  addTodo() {
-    const todo: ToDo = {
+  addTodo(): void {
+    const todo: TodoItem = {
       description: this.description,
       flag: false,
       id: Date.now(),
@@ -33,11 +32,11 @@ export class TodoComponent {
     this.description = '';
   }
 
-  checkTodo(id: number) {
+  checkTodo(id: number): void {
     this.todoService.onToggle(id);
   }
 
-  removeTodo(id: number) {
+  removeTodo(id: number): void {
     this.todoService.removeTodo(id);
   }
 }

@@ -1,19 +1,14 @@
 import { Injectable } from '@angular/core';
-
-export interface ToDo {
-  id: number;
-  flag: boolean;
-  description: string;
-}
+import {TodoItem} from "../models/todo-item";
 
 @Injectable({
   providedIn: 'root',
 })
 export class TodoService {
-  public todolist: ToDo[] = [
+  public todolist: TodoItem[] = [
     {
       id: 1,
-      flag: !false,
+      flag: true,
       description: 'learn NG Component',
     },
     {
@@ -23,7 +18,7 @@ export class TodoService {
     },
     {
       id: 3,
-      flag: !false,
+      flag: true,
       description: 'create custom btn from svg',
     },
     {
@@ -37,32 +32,20 @@ export class TodoService {
       description: 'do smth else',
     },
   ];
-
-  constructor() {
-    this.todolist = this.getTodos();
-
-    this.checkedArr = this.todolist.filter((i) => i.flag);
-    this.checkedTasks = this.checkedArr.length;
-  }
-  public checkedArr: any;
+  public checkedArr: TodoItem[];
   // = this.todolist.filter((i) => i.flag);
   public checkedTasks: number;
   // = this.checkedArr.length;
-  public tasks: number = this.todolist.length;
 
-  private setTodos(todolist: ToDo[]) {
-    localStorage.setItem('todoList', JSON.stringify(todolist));
-    console.log(this.getTodos());
+  constructor() {
+
+    this.todolist = TodoService.getTodos();
+    this.checkedArr = this.todolist.filter((i) => i.flag);
+    this.checkedTasks = this.checkedArr.length;
+
   }
 
-  private getTodos(): ToDo[] {
-    let localStorageItem = localStorage.getItem('todoList');
-    console.log(localStorageItem);
-
-    return localStorageItem == null ? [] : JSON.parse(localStorageItem);
-  }
-
-  public pushTodo(todo: ToDo) {
+  public pushTodo(todo: TodoItem): void {
     this.todolist.push(todo);
     this.setTodos(this.todolist);
   }
@@ -75,9 +58,18 @@ export class TodoService {
     this.setTodos(this.todolist);
   }
 
-  public removeTodo(id: number) {
+  public removeTodo(id: number): void {
     this.todolist = this.todolist.filter((item) => item.id !== id);
     this.checkedArr = this.todolist.filter((item) => item.flag);
     this.setTodos(this.todolist);
+  }
+
+  private setTodos(todolist: TodoItem[]): void {
+    localStorage.setItem('todoList', JSON.stringify(todolist));
+  }
+
+  private static getTodos(): TodoItem[] {
+    let localStorageItem = localStorage.getItem('todoList');
+    return localStorageItem == null ? [] : JSON.parse(localStorageItem);
   }
 }

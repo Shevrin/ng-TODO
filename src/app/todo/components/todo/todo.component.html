@@ -8,7 +8,6 @@
     type="text"
     class="input"
     placeholder="enter your task..."
-    #input
     *ngIf="show"
     [(ngModel)]="description"
     (keydown.enter)="addTodo()"
@@ -22,7 +21,7 @@
 </div>
 
 <div class="list">
-  <ul *ngIf="tasks; else noTodosList">
+  <ul *ngIf="todoService.todolist.length; else noTodos">
     <li *ngFor="let todo of todoService.todolist">
       <label>
         <input
@@ -43,8 +42,8 @@
       <span class="del-btn" (click)="removeTodo(todo.id)"></span>
     </li>
   </ul>
-  <ng-content select="selector"></ng-content>
+      <ng-template #noTodos>
+        <p class="notodo">no tasks</p>
+      </ng-template>
 </div>
-<ng-template #noTodosList>
-  <p style="text-align: center">No Tasks</p>
-</ng-template>
+
