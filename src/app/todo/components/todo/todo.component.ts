@@ -9,13 +9,13 @@ import { TodoItem } from '../../models/todo-item'
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoComponent {
-  show: boolean = false;
-  description!: string;
+  public show: boolean = false;
+  public description!: string;
 
   constructor(public todoService: TodoService) {
   }
 
-  addInput(): void {
+  toggleInput(): void {
     this.show = !this.show;
   }
 
