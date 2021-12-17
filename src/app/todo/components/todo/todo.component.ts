@@ -15,11 +15,11 @@ export class TodoComponent {
   constructor(public todoService: TodoService) {
   }
 
-  toggleInput(): void {
+  public toggleInput(): void {
     this.show = !this.show;
   }
 
-  addTodo(): void {
+  public addTodo(): void {
     const todo: TodoItem = {
       description: this.description,
       flag: false,
@@ -32,11 +32,11 @@ export class TodoComponent {
     this.description = '';
   }
 
-  checkTodo(id: number): void {
+  public checkTodo(id: number): void {
     this.todoService.onToggle(id);
   }
 
-  removeTodo(id: number): void {
+  public removeTodo(id: number): void {
     this.todoService.removeTodo(id);
   }
 }
