@@ -14,7 +14,27 @@
   background: $header-color;
 }
 
-.input {
+.head-text {
+  position: absolute;
+  margin: 90px 66px;
+  font-size: 36px;
+  color: $header-text-color;
+}
+
+.head-text__head-subtext {
+  display: inline;
+  padding-left: 10px;
+  vertical-align: middle;
+}
+
+.head-text__main-subtext {
+  display: inline;
+  font-size: 72px;
+  padding-left: 20px;
+  vertical-align: middle;
+}
+
+.head-input {
   display: flex;
   width: 724px;
   height: 48px;
@@ -26,27 +46,7 @@
   background: white;
 }
 
-.head-subtext {
-  display: inline;
-  padding-left: 10px;
-  vertical-align: middle;
-}
-
-.main-subtext {
-  display: inline;
-  font-size: 72px;
-  padding-left: 20px;
-  vertical-align: middle;
-}
-
-.head-text {
-  position: absolute;
-  margin: 90px 66px;
-  font-size: 36px;
-  color: $header-text-color;
-}
-
-.confirmButton {
+.head-controls__confirm-btn {
   @include customise-elem();
   @include size-btn-main();
   position: absolute;
@@ -57,6 +57,7 @@
   background-size: initial;
   background-color: $header-btn-color;
   background-image: url(../../../../assets/img/icons/ic-confirm-btn.svg);
+  transition: .2s;
 
   &:hover {
     background-size: 40%;
@@ -65,7 +66,7 @@
   }
 }
 
-.addButton {
+.head-controls__add-btn {
   @include size-btn-minor();
   @include size-btn-main();
   position: absolute;
@@ -78,6 +79,7 @@
   background-position: center;
   background-color: $header-btn-color;
   background-image: url(../../../../assets/img/icons/ic-add-element-btn.svg);
+  transition: .3s;
 
   &:hover {
     background-size: 38%;
@@ -86,7 +88,7 @@
   }
 }
 
-.cancleButton {
+.head-controls__cancle-btn {
   @include customise-elem();
   @include size-btn-minor();
   position: absolute;
@@ -96,6 +98,7 @@
   background-size: initial;
   background-color: $header-btn-color;
   background-image: url(../../../../assets/img/icons/ic-cancel-btn.svg);
+  transition: .3s;
 
   &:hover {
     background-color: #FF8383;
@@ -106,7 +109,7 @@
 
 // Список
 
-.list {
+.todo-container {
   position: absolute;
   width: 844px;
   min-height: 555px;
@@ -115,13 +118,13 @@
   background: white;
 }
 
-ul {
+.list {
   list-style: none;
   margin-top: 355px;
   padding: 56px;
 }
 
-li {
+.list-item {
   display: flex;
   max-width: 400px;
   margin-top: 30px;
@@ -131,40 +134,42 @@ li {
   justify-content: space-between;
 }
 
-.check-input {
+.list-item__check-input {
   position: absolute;
   display: none;
 
-  &:checked+.ch-box {
+  &:checked+.list-item__ch-box {
     background-size: 60%;
     background-position: center;
     background-repeat: no-repeat;
-    box-shadow: 0 0 0 4px #B4B2FF inset;
+    border: solid 5px #B4B2FF;
     background-image: url(../../../../assets/img/icons/ic-checkbox_after.svg);
+    transition: .1s;
   }
 }
 
-.ch-text {
+.list-item__ch-text {
   display: inline-block;
-  padding: 0 46px 0 56px;
+  padding: 4px 0 0 60px;
 }
 
-.ch-box {
+.list-item__ch-box {
   position: absolute;
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
+  border: solid 5px #8F8EC7;
   background-color: white;
   cursor: pointer;
-  box-shadow: 0 0 0 4px #8F8EC7;
+  // box-shadow: 0 0 0 4px #8F8EC7;
 }
 
-.check {
+.list-item__check {
   text-decoration: line-through;
   color: $text-color-hold;
 }
 
-.del-btn {
+.list-item__del-btn {
   @include elem-main();
   @include customise-elem();
   position: relative;
@@ -173,7 +178,7 @@ li {
   background-image: url(../../../../assets/img/icons/ic-delete-btn.svg);
 }
 
-.notodo {
+.nolist {
   display: block;
   position: absolute;
   padding: 0 96px;

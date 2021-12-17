@@ -1,49 +1,49 @@
 <div class="header">
   <div class="head-text">
-    <span class="main-subtext">{{ todoService.checkedArr.length }}</span>
-    <span class="head-subtext"> / {{ todoService.todolist.length }} </span>
+    <span class="head-text__main-subtext">{{ todoService.checkedArr.length }}</span>
+    <span class="head-text__head-subtext"> / {{ todoService.todolist.length }} </span>
     task
   </div>
   <input
     type="text"
-    class="input"
+    class="head-input"
     placeholder="enter your task..."
+		required
     *ngIf="show"
     [(ngModel)]="description"
     (keydown.enter)="addTodo()"
   />
-  <div class="form-btn" *ngIf="show">
-    <div class="confirmButton" (click)="addTodo()"></div>
-    <div class="cancleButton" (click)="description = ''"></div>
+  <div class="head-controls" *ngIf="show">
+    <div class="head-controls__confirm-btn" (click)="addTodo()"></div>
+    <div class="head-controls__cancle-btn" (click)="description = ''"></div>
   </div>
-
-  <div class="addButton" *ngIf="!show" (click)="toggleInput()"></div>
+  <div class="head-controls__add-btn" *ngIf="!show" (click)="toggleInput()"></div>
 </div>
 
-<div class="list">
-  <ul *ngIf="todoService.todolist.length; else noTodos">
-    <li *ngFor="let todo of todoService.todolist">
+<div class="todo-container">
+  <ul class="list" *ngIf="todoService.todolist.length; else noTodos">
+    <li class="list-item" *ngFor="let todo of todoService.todolist">
       <label>
         <input
           type="checkbox"
-          class="check-input"
+          class="list-item__check-input"
           [checked]="todo.flag"
           (change)="checkTodo(todo.id)"
         />
 
-        <div class="ch-box"></div>
+        <div class="list-item__ch-box"></div>
         <span
-          class="ch-text"
+          class="list-item__ch-text"
           [textContent]="todo.description"
-          [class.check]="todo.flag"
+          [class.list-item__check]="todo.flag"
           >{{ todo.description }}</span
         >
       </label>
-      <span class="del-btn" (click)="removeTodo(todo.id)"></span>
+      <span class="list-item__del-btn" (click)="removeTodo(todo.id)"></span>
     </li>
   </ul>
       <ng-template #noTodos>
-        <p class="notodo">no tasks</p>
+        <p class="nolist">no tasks</p>
       </ng-template>
 </div>
 

@@ -20,13 +20,13 @@ export class TodoComponent {
   }
 
   public addTodo(): void {
-    const todo: TodoItem = {
+    if (this.description) {
+		    const todo: TodoItem = {
       description: this.description,
       flag: false,
       id: Date.now(),
       // id: this.todoService.nextId + 1,
     };
-    if (todo.description.trim()) {
       this.todoService.pushTodo(todo);
     }
     this.description = '';
